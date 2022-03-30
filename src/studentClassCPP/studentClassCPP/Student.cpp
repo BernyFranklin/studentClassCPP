@@ -18,13 +18,15 @@ using namespace std;
 Student::Student() {
     name = "";      // Empty string
     IdNumber = 0;   // Initialized to zero
+    major = "";     // Empty string
     gpa = 0.0;      // Initialized to zero
 }   // End of default
 
 // Fully qualified constructor
-Student::Student(string n, int id, double g) {
+Student::Student(string n, int id, string m, double g) {
     setName(n);        // Use setName to validate data
     setIdNumber(id);   // Use setIdNumber to validate data
+    setMajor(m);       // Use setMajor to validate data
     setGpa(g);         // Use setGpa to validate data
 }   // End of fully qualified
 
@@ -35,7 +37,7 @@ void Student::setName(string n) {
     if (isupper(n[0]))   // First char of name must be A-Z
         name = n;
     else
-        name = "--Bad name Entered";
+        name = "--Bad name entered";
 }   // End of setName
 
 // Start getName
@@ -53,6 +55,18 @@ void Student::setIdNumber(int id) {
 // Start getIdNumber
 int Student::getIdNumber() { return IdNumber; }
 // End getIdNumber
+
+// Start setMajor
+void Student::setMajor(string m) {
+    if (isupper(m[0]))   // First char should be A-Z
+        major = m;
+    else
+        major = "--Bad major entered";
+}   // End setMajor
+
+// Start getMajor
+string Student::getMajor() { return major; }
+// End getMajor
 
 // Start setGpa
 void Student::setGpa(double g) {
