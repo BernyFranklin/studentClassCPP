@@ -20,6 +20,7 @@ class Student {
 private:
     string name;
     int IdNumber;
+    string major;
     double gpa;
     
     // Public member functions
@@ -28,14 +29,16 @@ public:
     
     // Default constructor
     Student();
-    // Constructor with 3 ARGS
-    Student(string n, int id, double g);
+    // Constructor with 4 ARGS
+    Student(string n, int id, string m, double g);
     
     // Mutators and accessors
     void setName(string n);
     string getName();
     void setIdNumber(int id);
     int getIdNumber();
+    void setMajor(string m);
+    string getMajor();
     void setGpa(double g);
     double getGpa();
     
