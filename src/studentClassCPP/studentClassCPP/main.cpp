@@ -3,7 +3,7 @@
  * Frank Bernal
  * CIS 054
  * Input
- * Output
+ * Output: Display Student ID, Name, Major, Gpa, and GPA average for class
  * 30 Mar 2022
  */
 
@@ -30,16 +30,19 @@ int main(int argc, const char * argv[]) {
     int numberOfStudents = sizeof(CIS054)/sizeof(Student);
     
     // Display the header line
-    cout << "            CIS 054 C/C++ Programming             " << endl;
-    cout << "==================================================" << endl;
-    cout << "  " << std::left << setw(7) << "ID#" << setw(22) << "Name" << "Major" << endl;
-    cout << "==================================================" << endl;
-    
+    cout << "               CIS 054 C/C++ Programming                 " << endl;
+    cout << "=========================================================" << endl;
+    cout << "  " << std::left << setw(7) << "ID#" << setw(22) << "Name"
+         << setw(22) << "Major" << "GPA" << endl;
+    cout << "=========================================================" << endl;
+    cout << setiosflags(ios::fixed | ios::showpoint);   // Used to show decimal
+    cout << setprecision(2);
     // List of all the students in the course
     for (int i = 0; i < numberOfStudents; i++) {
         cout << std::left << "  " << setw(5) << setfill('0') << CIS054[i].getIdNumber() << "  "
              << setw(20) << setfill(' ') << CIS054[i].getName() << "  "
-             << CIS054[i].getMajor() << endl;
+             << setw(20) << CIS054[i].getMajor() << "  "
+             << CIS054[i].getGpa() << endl;
     }   // End of loop
     
     cout << endl;   // Blank line between students names and grades
@@ -53,7 +56,7 @@ int main(int argc, const char * argv[]) {
     
     // Print massage
     cout << setiosflags(ios::fixed | ios::showpoint);   // Used to show decimal
-    cout << "  " << "The Average GPA of all the students is " << setprecision(2) << average << endl << endl;
+    cout << "  " << "The Average GPA of all the students is " << average << endl << endl;
     
     
         
